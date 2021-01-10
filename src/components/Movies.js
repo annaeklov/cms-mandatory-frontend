@@ -41,7 +41,6 @@ function Movies({ token }) {
       });
   }
 
-  console.log("all movies", movies);
   let mappedMovies;
 
   if (movies) {

@@ -104,7 +104,6 @@ function Edit({ token }) {
         }
       )
       .then((resp) => {
-        console.log("resp.data i PUT", resp.data);
         if (resp.status === 200) {
           setIsAdded(true);
         }
@@ -116,9 +115,7 @@ function Edit({ token }) {
 
   function onClickEditMovie(e) {
     e.preventDefault();
-    console.log(checkedGenres.length);
     if (checkedGenres.length > 0) {
-      console.log("tom");
       if (getMovie.title.trim() === "" || getMovie.recension.trim() === "") {
         return setErrorMsg("emptyInput");
       }

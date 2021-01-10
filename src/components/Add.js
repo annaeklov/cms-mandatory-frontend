@@ -45,8 +45,6 @@ function Add({ token }) {
       },
     };
 
-    console.log("item i POST", item);
-
     axios
       .post("http://localhost:8888/aewordpress/wp-json/wp/v2/movies/", item, {
         headers: { Authorization: "Bearer" + token },
@@ -72,7 +70,6 @@ function Add({ token }) {
         return genre !== parseInt(e.target.id);
       });
       setCheckedGenres(filteredGenre);
-      console.log(checkedGenres);
     }
   }
 
@@ -83,9 +80,7 @@ function Add({ token }) {
 
   function onClickAddMovie(e) {
     e.preventDefault();
-    console.log(checkedGenres.length);
     if (checkedGenres.length > 0) {
-      console.log("tom");
       if (newMovie.title.trim() === "" || newMovie.recension.trim() === "") {
         return setErrorMsg("emptyInput");
       }
