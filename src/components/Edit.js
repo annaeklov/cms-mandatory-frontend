@@ -154,8 +154,8 @@ function Edit({ token }) {
           <ul>
             Valda genres innan edit:
             {getMovie.acf.genrecustom.map((genreName) => {
-              return genreName.map((name) => {
-                return <li>{name} </li>;
+              return genreName.map((name, x) => {
+                return <li key={x}>{name} </li>;
               });
             })}
           </ul>

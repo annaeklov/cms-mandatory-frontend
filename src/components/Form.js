@@ -12,19 +12,26 @@ function Form({
   result,
   errorMsg,
 }) {
+  let element;
+
   if (newMovie.genres) {
+    //mappar igenom ALLA genres
     let mappedGenreId = genres.map((genre) => {
       return genre.id;
     });
+    console.log("ALLA genres id:", mappedGenreId);
 
-    console.log("mappade GenreId", mappedGenreId);
+    //hittar de VALDA genres i ALLA genres
     const intersection = newMovie.genres.filter((element) =>
       mappedGenreId.includes(element)
     );
-    console.log("intersection", intersection);
+    console.log("VALDA genres array:", intersection);
 
+    //loopar igenom VALDA genres
     intersection.forEach((element) => {
-      console.log(element);
+      console.log("VALDA genre var för sig:", element);
+
+      return element;
     });
   }
 
@@ -39,7 +46,7 @@ function Form({
             onChange={handleChange}
             value={newMovie.title}
             required
-            autofocus
+            autoFocus
           />
         </label>
         <label className="inputs recension" name="recension">
@@ -70,6 +77,7 @@ function Form({
           <p>Välj en eller fler genres</p>
           <br />
           {genres.map((genre) => {
+            console.log("element i checkbox", element)
             return (
               <label key={genre.id}>
                 {genre.name}
@@ -79,6 +87,7 @@ function Form({
                   onChange={onChangeGenre}
                   name="genre"
                   id={genre.id}
+                  //checked={genre.id === element} // element är undefined här
                 />
                 <br />
               </label>
@@ -157,7 +166,7 @@ const FormWrapper = styled.div`
   }
   .submitBtnDiv {
     display: flex;
-    justify-content:center;
+    justify-content: center;
   }
   .submitBtn {
     width: 116px;
